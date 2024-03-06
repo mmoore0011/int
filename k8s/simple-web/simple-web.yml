@@ -1,0 +1,31 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: simple-web
+  labels:
+    app: simple-web
+spec:
+  selector:
+    app: simple-web
+  ports:
+  - port: 8000
+    protocol: TCP
+    targetPort: 8000
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simple-web
+  labels:
+    app: simple-web
+spec:
+  restartPolicy: Never
+  containers:
+  - name: simple-web-server
+    image: localhost:5000/simple_web_server
+    ports:
+    - containerPort: 8000
+
+  - name: web-server-monitor
+    image: localhost:5000/web_server_monitor
