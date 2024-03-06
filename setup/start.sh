@@ -9,4 +9,4 @@ sdlc/build
 cd /var/opt/source/k8s/simple-web/
 kubectl apply -f simple-web.yml
 sleep 10
-kubectl port-forward service/simple-web 8000:8000 --address='0.0.0.0'
+kubectl port-forward service/simple-web 8000:8000 --address='0.0.0.0' &
