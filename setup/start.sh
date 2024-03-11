@@ -2,6 +2,7 @@ kind delete cluster
 docker rm -fv kind-regisrty
 cd /var/opt/source/k8s/kind/
 ./kind_create.sh
+sleep 20
 cd /var/opt/source/containers/simple_web_server
 sdlc/build
 cd /var/opt/source/containers/web_server_monitor/

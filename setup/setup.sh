@@ -23,8 +23,3 @@ curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/b
 echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
 install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 rm kubectl kubectl.sha256
-
-echo "Creating cluster"
-kind create cluster
-
-kubectl cluster-info
